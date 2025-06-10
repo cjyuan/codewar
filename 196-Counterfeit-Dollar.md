@@ -2,7 +2,7 @@
 
 ## Strategy 1 (Through simulation)
 - Test all 24 possible coin configurations against the weighting result
-- If exactly one coin configuration can satisfy the weighting result, then we have the answer.
+- The only coin configuration that can satisfy the weighting result is the solution.
 
 ### Algorithm
 ```
@@ -48,7 +48,7 @@
         if (the coin weight is "light") // previously identified as "light"
             Set its weight to "normal"  // Only a normal coin could be previously identified with a different weight
 
-        // No change needed if the coin weight is "normal" or "heavy"
+        // No change is needed if the coin weight is "normal" or "heavy"
 
     if (outcome is "down")
         // "down" is just opposite of "up", so we can use a similar approach to update the weight.
