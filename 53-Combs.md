@@ -8,9 +8,7 @@
 
 ### Algorithm
 
-#### 1. Swap comb1 and comb2 if comb2 is longer (ensure length of comb1 >= length of comb2)
-
-#### 2. Normalization
+#### 1. Normalization
 
 Suppose 
 ```
@@ -26,7 +24,7 @@ Result of normalization
   comb2 = "**.*"
 ```
 
-#### 3. Slide comb2 across comb1 and check if they can be combined
+#### 2. Slide comb2 across comb1 and check if they can be combined
 ```
 Let minLen = L1 + L2
 
