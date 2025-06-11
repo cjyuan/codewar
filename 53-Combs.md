@@ -8,34 +8,37 @@
 
 ### Algorithm
 
-#### 1. Normalization
+Given `comb1` and `comb2`. 
+Let `L1` and `L2` be the length of comb1 and comb2 respectively.
 
-Suppose 
+#### 1. Preprocessing (to make comparing comb1 and comb2 easier)
+
+- **Prepend** and **append** a string of length `L2` consisting entirely of the character `'?'` (that serves as a special marker).
+
+For example, if 
 ```
-  comb1 = "*.*..***.*" (length L1)
-  comb2 = "**.*"       (length L2)
+  comb1 = "*.*..***.*" 
+  comb2 = "**.*"       
 ```
-
-To make comparing comb1 and comb 2 easier, prepend and append `"????"` (of length L2) to comb1.
-
-Result of normalization
+then we convert `comb1` to
 ```
   comb1 = "????*.*..***.*????"
   comb2 = "**.*"
 ```
+so that when we slide `comb2` across `comb1` to check if they can be combined, we always have `L2` characters to compare.
 
 #### 2. Slide comb2 across comb1 and check if they can be combined
 ```
 Let minLen = L1 + L2
 
-for startIndex = 0 to L1 + L2
+for startIndex = 0 to L1 + L2 - 1
   Let s1 = comb1.substr(startIndex, L2)
   Let s2 = comb2
 
   Let extraLength = number of '?' in s1
 
-  Check if comb1 and comb2 can be combined together
-    Note: s1 and s2 cannot be combined together if they have '*' at the same position
+  Check if s1 and s2 can be combined
+  Note: s1 and s2 cannot be combined if they both have a '*' at the same position in any index.
 
   if (s1 and s2 can be combined)
     minLen = min(minLen, L1 + extraLength)
